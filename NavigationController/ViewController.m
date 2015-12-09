@@ -19,8 +19,6 @@
 {
     self = [super init];
     if (self) {
-        self.extendedLayoutIncludesOpaqueBars = YES;
-//        self.automaticallyAdjustsScrollViewInsets = NO;
         self.title = [NSString stringWithFormat:@"%u", arc4random()%100];
         self.navigationColor = [UIColor colorWithRed:arc4random()%225/225.0 green:arc4random()%225/225.0 blue:arc4random()%225/225.0 alpha:1.0];
     }
@@ -30,8 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.view.backgroundColor = [UIColor colorWithRed:arc4random()%225/225.0 green:arc4random()%225/225.0 blue:arc4random()%225/225.0 alpha:1.0];
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor colorWithRed:arc4random()%225/225.0 green:arc4random()%225/225.0 blue:arc4random()%225/225.0 alpha:1.0];
     
     UIButton *button1 = [UIButton buttonWithType:UIButtonTypeSystem];
     button1.frame = CGRectMake(100, 0, 200, 200);
@@ -43,7 +40,7 @@
     [self.view addSubview:button1];
     
     UIButton *button2 = [UIButton buttonWithType:UIButtonTypeSystem];
-    button2.frame = CGRectMake(100, 300, 200, 200);
+    button2.frame = CGRectMake(100, CGRectGetMaxY(button1.frame), 200, 200);
     [button2 setTitle:@"push to viewController have't navigationbar" forState:UIControlStateNormal];
     [button2 setBackgroundColor:[UIColor blackColor]];
     [button2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

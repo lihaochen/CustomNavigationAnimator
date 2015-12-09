@@ -29,10 +29,12 @@
     
     
     fromViewController.view.alpha = 1;
-    toViewController.view.center = CGPointMake(CGRectGetWidth(fromViewController.view.bounds)*3/2.f, toViewController.view.center.y);
+    // 得到toViewController真实frame，是否包含navigationbar并计算高度，改变toViewController.view的frame
+    toViewController.view.frame = [transitionContext finalFrameForViewController:toViewController];
+    toViewController.view.center = CGPointMake(CGRectGetWidth(toViewController.view.bounds)*3/2.f, toViewController.view.center.y);
     [UIView animateWithDuration:timeInterval delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         toViewController.view.center = CGPointMake(CGRectGetWidth(fromViewController.view.bounds)/2.f, toViewController.view.center.y);
-        fromViewController.view.center = CGPointMake(CGRectGetWidth(fromViewController.view.bounds)/3.f, fromViewController.view.center.y);
+        fromViewController.view.center = CGPointMake(0, fromViewController.view.center.y);
         fromViewController.view.alpha = 0.5;
         
     } completion:^(BOOL finished) {

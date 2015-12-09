@@ -27,9 +27,10 @@
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     [[transitionContext containerView] insertSubview:toViewController.view belowSubview:fromViewController.view];
     
-//    toViewController.view.transform = CGAffineTransformMakeScale(0.8, 0.8);
+    
     toViewController.view.alpha = 0.5;
-    toViewController.view.center = CGPointMake(CGRectGetWidth(toViewController.view.bounds)/3.f, toViewController.view.center.y);
+    toViewController.view.frame = [transitionContext finalFrameForViewController:toViewController];
+    toViewController.view.center = CGPointMake(0, toViewController.view.center.y);
     [UIView animateWithDuration:timeInterval delay:0 options:UIViewAnimationOptionCurveLinear|UIViewAnimationOptionAllowUserInteraction animations:^{
         fromViewController.view.center = CGPointMake(CGRectGetWidth(fromViewController.view.bounds)*3/2.f, fromViewController.view.center.y);
         toViewController.view.center = CGPointMake(CGRectGetWidth(toViewController.view.bounds)/2.f, toViewController.view.center.y);

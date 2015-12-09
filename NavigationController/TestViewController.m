@@ -19,7 +19,6 @@
 {
     self = [super init];
     if (self) {
-//        self.automaticallyAdjustsScrollViewInsets = NO;
         self.title = @"test";
     }
     return self;
@@ -28,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor blueColor];    
+    self.view.backgroundColor = [UIColor blueColor];
     
     UIScrollView *view = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     view.contentSize = CGSizeMake(CGRectGetWidth(self.view.bounds), 1800);
@@ -44,7 +43,7 @@
     [view addSubview:button1];
     
     UIButton *button2 = [UIButton buttonWithType:UIButtonTypeSystem];
-    button2.frame = CGRectMake(100, 300, 200, 200);
+    button2.frame = CGRectMake(100, CGRectGetMaxY(button1.frame), 200, 200);
     [button2 setBackgroundColor:[UIColor blackColor]];
     [button2 setTitle:@"push to viewController have't navigationbar" forState:UIControlStateNormal];
     [button2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

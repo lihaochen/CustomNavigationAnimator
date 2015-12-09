@@ -21,7 +21,6 @@
 {
     self = [super initWithRootViewController:rootViewController];
     if (self) {
-//        self.automaticallyAdjustsScrollViewInsets = NO;
         self.naviDelegate = [[NavigationControllerDelegate alloc] initWithNavigationController:self];
         self.delegate = self.naviDelegate;
         
